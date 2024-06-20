@@ -1,0 +1,97 @@
+@import "../../styles/settings.scss";
+
+$left_right_width: 50%;
+$sides_offset: 50px;
+
+.explainBlock {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100dvh;
+
+  &_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: $explainBlock_top_height;
+    max-width: $max_width_2;
+
+    &_el {
+      font-weight: 900;
+      font-size: 32px;
+    }
+
+    &_elActive {
+      color: $accent;
+    }
+  }
+
+  &_topTitle {
+    font-weight: 900;
+    font-size: 64px;
+    color: $accent;
+  }
+
+  &_bottom {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    &_left {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: calc($left_right_width - $sides_offset);
+
+      &_wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        width: calc($max_width_2 / 2 - $sides_offset);
+
+        &_text {
+          font-weight: 500;
+          font-size: 24px;
+          line-height: 28px;
+          color: rgba(255, 255, 255, 0.6);
+
+          span {
+            font-weight: 900;
+            font-size: 32px;
+            font-style: italic;
+            color: white;
+          }
+        }
+
+        &_btn {
+          padding: 15px 75px;
+          border-radius: $radius;
+          border: 2px solid $accent;
+          font-weight: 900;
+          font-size: 24px;
+
+          transition: all 0.25s ease-in;
+
+          &:hover {
+            opacity: 0.8;
+            background-color: $accent;
+            color: black;
+          }
+        }
+      }
+    }
+
+    &_right {
+      display: flex;
+      justify-content: flex-end;
+      width: $left_right_width;
+      &_img {
+        width: calc(100% - $sides_offset);
+      }
+    }
+  }
+}

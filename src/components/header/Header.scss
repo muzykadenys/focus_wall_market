@@ -1,3 +1,28 @@
-.header{
-    color: greenyellow;
+@import "../../styles/settings.scss";
+
+.header {
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: $max_width_2;
+  padding-top: 30px;
+
+  height: $header_height;
+
+  &_logo {
+  }
+
+  &_right {
+    display: flex;
+    gap: 65px;
+
+    &_link {
+      cursor: pointer;
+      font-size: 19px;
+      font-weight: 600;
+      color: white;
+    }
+  }
 }
