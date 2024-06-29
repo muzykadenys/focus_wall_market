@@ -1,0 +1,88 @@
+@import "../../styles/settings.scss";
+
+.constructionBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  background-color: $g_1;
+  padding-bottom: 70px;
+
+  &_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: $max_width_3;
+    gap: 50px;
+
+    &_content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: 50px;
+
+      &_title {
+        color: $accent;
+        font-size: 48px;
+        font-weight: 800;
+      }
+
+      &_steps {
+        display: flex;
+        width: 100%;
+
+        &_el {
+          flex: 1;
+          height: 400px;
+          border-right: 1px solid $accent;
+          padding: 0px 50px;
+
+          &:last-child {
+            border-right: none;
+            padding-right: 0px;
+          }
+          &:first-child {
+            border-left: none;
+            padding-left: 0px;
+          }
+
+          h2 {
+            color: $accent;
+            font-size: 48px;
+            font-weight: 800;
+          }
+          h3 {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+          }
+          p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 20px;
+            font-weight: 400;
+          }
+        }
+      }
+
+      button {
+        padding: 15px 75px;
+        border-radius: $radius;
+        border: 2px solid $accent;
+        font-weight: 900;
+        font-size: 24px;
+        color: white;
+
+        transition: all 0.25s ease-in;
+
+        &:hover {
+          opacity: 0.8;
+          background-color: $accent;
+          color: black;
+        }
+      }
+    }
+  }
+}
