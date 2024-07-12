@@ -1,4 +1,5 @@
 type ExplainBlockType = {
+  idName: string;
   img: string;
   topType: "word" | "set_of_word";
   topTitle?: string;
@@ -7,6 +8,7 @@ type ExplainBlockType = {
 };
 
 function ExplainBlock({
+  idName,
   img,
   topType,
   contentTitle,
@@ -14,7 +16,7 @@ function ExplainBlock({
   topTitle,
 }: ExplainBlockType) {
   return (
-    <div className="explainBlock">
+    <div className="explainBlock" id={idName}>
       {topType === "set_of_word" && (
         <div className="explainBlock_top">
           <h2 className="explainBlock_top_el explainBlock_top_elActive">

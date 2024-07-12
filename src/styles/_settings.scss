@@ -3,6 +3,8 @@ $g_1: #282828;
 
 $radius: 15px;
 
+$section_offset: 16px;
+
 $max_width: 1920px;
 $max_width_2: 1300px;
 $max_width_3: 1200px;
@@ -10,3 +12,55 @@ $max_width_3: 1200px;
 $header_height: 80px;
 
 $explainBlock_top_height: 180px;
+
+$red_1: #cd1d1d;
+$red_2: rgb(141, 0, 0);
+
+$header_height: 80px;
+$heightOfBlock_1: 400px;
+$heightOfBlock_2: 350px;
+$heightOfBlock_3: 300px;
+$heightOfBlock_4: 250px;
+
+$break_point_1: $max_width;
+$break_point_2: 1200px;
+$break_point_2_1: 1080px;
+$break_point_3: 768px;
+$break_point_4: 610px;
+
+@mixin separator() {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  &_Text {
+    z-index: 1;
+    font-size: 48px;
+    font-weight: 500;
+    background-color: white;
+    padding: 0px 50px;
+  }
+
+  &_Line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: $red_1;
+  }
+}
+
+@mixin disableScrollBars {
+  &::-webkit-scrollbar {
+    height: 0px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: white;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: white;
+  }
+}

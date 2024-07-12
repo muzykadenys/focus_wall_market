@@ -1,5 +1,8 @@
+import CarouselEl from "@/components/carouselEl/CarouselEl";
 import ConstructionBlock from "@/components/constructionBlock/ConstructionBlock";
+import ContactBlock from "@/components/contactBlock/ContactBlock";
 import ExplainBlock from "@/components/explainBlock/ExplainBlock";
+import FlagsBlock from "@/components/flagsBlock/FlagsBlock";
 import Header from "@/components/header/Header";
 import Hero from "@/components/hero/Hero";
 
@@ -9,6 +12,7 @@ export default function Home() {
       <Hero />
 
       <ExplainBlock
+        idName="focuswall"
         topType="set_of_word"
         contentTitle="Focus Wall"
         content=" (текстильний лайтбокс) - це втілення
@@ -49,6 +53,7 @@ export default function Home() {
       />
 
       <ExplainBlock
+        idName="cube"
         topType="word"
         topTitle="02.Куби"
         contentTitle="Куби"
@@ -90,6 +95,7 @@ export default function Home() {
       />
 
       <ExplainBlock
+        idName="winder"
         topType="word"
         topTitle="03.Віндер"
         contentTitle="Віндери"
@@ -99,6 +105,18 @@ export default function Home() {
             та зручністю у використанні."
         img="../img/baner_4.png"
       />
+
+      <FlagsBlock />
+
+      <CarouselEl
+        slidesList={[
+          { img: "../img/flag_1.png", text: "Хрестоподібна з підшипником" },
+          { img: "../img/flag_2.png", text: "Хрестоподібна (Люкс)" },
+          { img: "../img/flag_3.png", text: "Плоска квадратна" },
+        ]}
+      />
+
+      <ContactBlock />
     </div>
   );
 }
