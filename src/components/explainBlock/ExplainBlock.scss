@@ -15,7 +15,7 @@ $sides_offset: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: calc(100% - $sides_offset);
     height: $explainBlock_top_height;
     max-width: $max_width_2;
 
@@ -38,7 +38,7 @@ $sides_offset: 50px;
   &_bottom {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: calc(100% - $sides_offset);
 
     &_left {
       display: flex;
@@ -91,6 +91,134 @@ $sides_offset: 50px;
       width: $left_right_width;
       &_img {
         width: calc(100% - $sides_offset);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .explainBlock {
+    height: 100%;
+    &_top {
+      &_el {
+        font-size: 22px;
+      }
+    }
+
+    &_topTitle {
+      font-weight: 900;
+      font-size: 64px;
+      color: $accent;
+    }
+
+    &_bottom {
+      &_left {
+        &_wrap {
+        }
+      }
+
+      &_right {
+        display: flex;
+        justify-content: flex-end;
+        width: $left_right_width;
+
+        &_img {
+          width: calc(100% - $sides_offset);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .explainBlock {
+    &_top {
+      &_el {
+        font-size: 18px;
+      }
+    }
+
+    &_topTitle {
+      font-weight: 900;
+      font-size: 64px;
+      color: $accent;
+    }
+
+    &_bottom {
+      width: 100%;
+      align-items: center;
+      flex-direction: column-reverse;
+
+      &_left {
+        width: calc(100% - $sides_offset);
+        &_wrap {
+          width: 100%;
+
+          &_text {
+            font-size: 16px;
+            line-height: 22px;
+          }
+
+          &_btn{
+            margin-bottom: 30px;
+          }
+        }
+      }
+
+      &_right {
+        display: flex;
+        justify-content: flex-end;
+        width: 80%;
+        padding-bottom: 20px;
+
+        &_img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  .explainBlock {
+    &_top {
+      height: fit-content;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 40px 0px;
+      &_el {
+        font-size: 18px;
+      }
+    }
+
+    &_topTitle {
+      padding: 0px;
+
+      // font-weight: 900;
+      // font-size: 64px;
+      // color: $accent;
+    }
+
+    &_bottom {
+      width: 100%;
+      align-items: center;
+      flex-direction: column-reverse;
+
+      &_left {
+        width: calc(100% - $sides_offset);
+        &_wrap {
+          width: 100%;
+        }
+      }
+
+      &_right {
+        display: flex;
+        justify-content: flex-end;
+        width: 80%;
+        padding-bottom: 20px;
+
+        &_img {
+          width: 100%;
+        }
       }
     }
   }

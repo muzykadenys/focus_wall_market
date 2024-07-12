@@ -12,12 +12,12 @@ function Hero() {
           <h1 className="hero_wrap_text_title">Віндери, прапори</h1>
         </div>
 
-        <button
+        <a
+          href="#contact"
           className="hero_wrap_button"
-          // onClick={HandleClickOrder}
         >
           Замовляй прямо зараз!
-        </button>
+        </a>
       </div>
     </section>
   );
