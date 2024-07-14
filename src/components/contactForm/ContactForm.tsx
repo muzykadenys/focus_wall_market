@@ -72,17 +72,7 @@ const ContactForm = () => {
         value={values["phone_number"]}
         onChange={(e: any) => handleSetValue(e.target.value, "phone_number")}
       />
-      <label htmlFor="reason" className="visually-hidden">
-        Причина звернення
-      </label>
-      <input
-        id="purpose"
-        type="text"
-        className="form-input phone-input"
-        placeholder="Причина звернення"
-        value={values["purpose"]}
-        onChange={(e: any) => handleSetValue(e.target.value, "purpose")}
-      />
+      
       <label htmlFor="comments" className="visually-hidden">
         Коментарі
       </label>
@@ -199,6 +189,8 @@ const ContactForm = () => {
           .submit-button {
             white-space: initial;
             padding: 0 20px;
+            margin-bottom:20px;
+            margin-top:10px;
           }
         }
         @media (max-width: 640px) {
@@ -206,14 +198,34 @@ const ContactForm = () => {
             margin: 0 30px;
           }
           .phone-input {
-            margin-top: 20px;
+            margin-top: 10px;
             padding-right: 154px;
+            margin-bottom: 10px;
           }
           .form-textarea {
+            margin-top:10px;
             padding-bottom: 29px;
           }
           .submit-button {
             margin-top: 20px;
+            margin-bottom: 20px;
+          }
+        }
+        @media (max-width: 400px) {
+          .contact-form {
+            margin: 0 20px;
+          }
+          .phone-input {
+            margin-top: 10px;
+            padding-right: 120px;
+          }
+          .form-textarea {
+            margin-top:10px;
+            padding-bottom: 15px;
+          }
+          .submit-button {
+            margin-top: 10px;
+            margin-bottom: 10px;
           }
         }
       `}</style>

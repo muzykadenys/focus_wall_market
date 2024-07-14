@@ -110,6 +110,24 @@ const ContactSection = () => {
             font-size: 10px;
             margin-top: 10px;
           }
+          .contact-info{
+            margin-bottom:30px;
+          }
+        }
+        @media (max-width: 400px) {
+          .contact-container {
+            margin-top: -2px;
+          }
+          .contact-title {
+            font-size: 20px;
+          }
+          .contact-description {
+            font-size: 10px;
+            margin-top: 10px;
+          }
+          .contact-info{
+            margin-bottom:20px;
+          }
         }
       `}</style>
     </section>
