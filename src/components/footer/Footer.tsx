@@ -127,6 +127,28 @@ const Footer = () => {
             font-size: 9px;
           }
         }
+        @media (max-width: 400px) {
+          .footer-logo {
+            width: 30px;
+          }
+          .footer-nav {
+            margin-right: auto;
+          }
+          .nav-link {
+            font-size: 8px;
+            margin: 0 auto 0 10px;
+          }
+          .nav-link:nth-child(2) {
+            margin: 0 auto 0 5px;
+          }
+          .nav-link:last-child {
+            margin-left: 5px;
+          }
+          .contact-info {
+            font-size: 8px;
+          }
+          
+        }
       `}</style>
     </footer>
   );
