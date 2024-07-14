@@ -14,7 +14,7 @@ const ContactForm = () => {
   const [values, setValues] = useState<ValuesType>({
     name: "",
     phone_number: "",
-    purpose: "",
+    purpose: "Запитання",
     comment: "",
   });
 
@@ -28,9 +28,10 @@ const ContactForm = () => {
 
   const handleOnSubmit = async (e: any) => {
     e.preventDefault();
-
-    if (!isLoading && areValuesNotEmpty(values)) {
+    
+    if (!isLoading && areValuesNotEmpty({...values})) {
       setIsLoading(true);
+      console.log("2")
 
       const res = await handleSendLetter({ ...values });
 
