@@ -3,17 +3,31 @@ import ConstructionBlock from "@/components/constructionBlock/ConstructionBlock"
 import ContactBlock from "@/components/contactBlock/ContactBlock";
 import ExplainBlock from "@/components/explainBlock/ExplainBlock";
 import FlagsBlock from "@/components/flagsBlock/FlagsBlock";
-import Header from "@/components/header/Header";
 import Hero from "@/components/hero/Hero";
+import Head from "next/head";
 
 export default function Home() {
   return (
     <div>
+      <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+          rel="stylesheet"
+        />
+        <title>Focus wall market</title>
+        <meta
+          name="description"
+          content="Текстильні лайтбокси. Рекламні куби. Віндери, прапори."
+          key="desc"
+        />
+      </Head>
+
       <Hero />
 
       <ExplainBlock
         idName="focuswall"
-        topType="set_of_word"
+        topType="word"
+        topTitle="01.Фокусволи"
         contentTitle="Focus Wall"
         content=" (текстильний лайтбокс) - це втілення
               передових технологій та комплекс рішень для ефективної візуальної
@@ -24,6 +38,7 @@ export default function Home() {
       />
 
       <ConstructionBlock
+        rectBg={"rgb(255,255,255)"}
         img="../img/constr_1.png"
         title="Конструкція Focus Wall"
         steps={[
@@ -70,6 +85,7 @@ export default function Home() {
       />
 
       <ConstructionBlock
+        rectBg={"rgb(242,242,242)"}
         img="../img/constr_2.png"
         title="Конструкція Куба"
         steps={[

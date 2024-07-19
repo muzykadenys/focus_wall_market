@@ -25,10 +25,10 @@ const Footer = () => {
           <a href="mailto:orfer@toptrend.com.ua" className="email">
             orfer@toptrend.com.ua
           </a>
-          <a href="tel:+380673145515" className="phone">
+          <a href="tel:+380673145515" className="phone-1">
             + 380 (67) 314-55-15
           </a>
-          <a href="tel:+380673145500" className="phone">
+          <a href="tel:+380673145500" className="phone-2">
             + 380 (67) 314-55-00
           </a>
         </div>
@@ -105,6 +105,17 @@ const Footer = () => {
           .footer-nav {
             white-space: initial;
           }
+          .email{
+            margin-top:18px;
+          }
+          .phone-1{
+            margin-top:5px;
+
+          }
+          .phone-2{
+            margin-top:5px;
+            margin-bottom:18px;
+          }
         }
         @media (max-width: 640px) {
           .footer-logo {
@@ -126,6 +137,17 @@ const Footer = () => {
           .contact-info {
             font-size: 9px;
           }
+          .email{
+            margin-top:13px;
+          }
+          .phone-1{
+            margin-top:2px;
+
+          }
+          .phone-2{
+            margin-top:2px;
+            margin-bottom:13px;
+          }
         }
         @media (max-width: 400px) {
           .footer-logo {
@@ -146,6 +168,17 @@ const Footer = () => {
           }
           .contact-info {
             font-size: 8px;
+          }
+          .email{
+            margin-top:8px;
+          }
+          .phone-1{
+            margin-top:2px;
+
+          }
+          .phone-2{
+            margin-top:2px;
+            margin-bottom:9px;
           }
           
         }

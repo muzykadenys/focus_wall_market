@@ -43,14 +43,14 @@ function ExplainBlock({
               {content}
             </p>
 
-            <button className="explainBlock_bottom_left_wrap_btn">
+            <a className="explainBlock_bottom_left_wrap_btn" href="#contact">
               Замовити
-            </button>
+            </a>
           </div>
         </div>
 
         <div className="explainBlock_bottom_right">
-          <img className="explainBlock_bottom_right_img" src={img} />
+          <img className="explainBlock_bottom_right_img" src={img} alt="explain image"/>
         </div>
       </div>
     </div>

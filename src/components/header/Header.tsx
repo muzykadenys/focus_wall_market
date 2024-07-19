@@ -9,28 +9,28 @@ function Header() {
 
   return (
     <header className="header">
-      <img className="header_logo" src="../img/logo.svg" />
+      <img className="header_logo" src="../img/logo.svg" alt="logo"/>
 
       <div className="header_right">
         <a className="header_right_link" href="#focuswall">
-          Focuswall
+          Фокусволи
         </a>
         <a className="header_right_link" href="#cube">
-          Cube
+          Куби
         </a>
         <a className="header_right_link" href="#winder">
-          Flag
+          Віндери
         </a>
-        <a className="header_right_link"  href="#contact">Contact</a>
+        <a className="header_right_link"  href="#contact">Контакти</a>
       </div>
 
       <div className="header_rightMobile" onClick={() => setIsOpen(true)}>
-        <img src="../img/menu.svg" />
+        <img src="../img/menu.svg" alt="menu icon"/>
       </div>
 
       <div className={`header_side ${isOpen && "header_sideOpen"}`}>
         <div className="header_side_close" onClick={() => setIsOpen(false)}>
-          <img src="../img/close.svg" />
+          <img src="../img/close.svg" alt="close menu icon"/>
         </div>
 
         <a
