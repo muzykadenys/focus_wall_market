@@ -35,7 +35,7 @@ const ContactSection = () => {
           max-width: 1145px;
         }
         .contact-content {
-          gap: 20px;
+          gap: 130px;
           display: flex;
         }
         .contact-info {
@@ -48,11 +48,11 @@ const ContactSection = () => {
         .contact-title {
           color: #bbe73e;
           margin-right: -4px;
-          font: 900 64px Roboto, sans-serif;
+          font: 900 58px Roboto, sans-serif;
         }
         .contact-description {
           color: rgba(255, 255, 255, 0.6);
-          margin-top: 37px;
+          margin-top: 36px;
           font: 500 20px Inter, sans-serif;
         }
         @media (max-width: 400px) {
@@ -110,23 +110,28 @@ const ContactSection = () => {
             font-size: 10px;
             margin-top: 10px;
           }
-          .contact-info{
-            margin-bottom:30px;
+          .contact-info {
+            margin-bottom: 30px;
           }
         }
         @media (max-width: 400px) {
+          .contact-section {
+            padding-top: 0px;
+          }
           .contact-container {
             margin-top: -2px;
           }
           .contact-title {
             font-size: 20px;
+            margin-left: -5px;
           }
           .contact-description {
             font-size: 10px;
             margin-top: 10px;
+            margin-left: -5px;
           }
-          .contact-info{
-            margin-bottom:20px;
+          .contact-info {
+            margin-bottom: 20px;
           }
         }
       `}</style>
