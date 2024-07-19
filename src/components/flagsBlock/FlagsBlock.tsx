@@ -3,7 +3,7 @@ function FlagsBlock() {
     <section className="flagsBlock">
       <div className="flagsBlock_wrap">
         <div className="flagsBlock_wrap_content">
-          <img src="../img/flags.png" />
+          <img src="../img/flags.png" alt="flags image"/>
 
           <div className="flagsBlock_wrap_content_text">
             <h1 className="flagsBlock_wrap_content_text_title">

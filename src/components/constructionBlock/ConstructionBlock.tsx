@@ -4,16 +4,28 @@ interface StepsItemType {
 }
 
 interface ConstructionBlockType {
+  rectBg: "rgb(255,255,255)" | "rgb(242,242,242)";
   img: string;
   title: string;
   steps: StepsItemType[];
 }
 
-function ConstructionBlock({ img, title, steps }: ConstructionBlockType) {
+function ConstructionBlock({
+  img,
+  title,
+  steps,
+  rectBg,
+}: ConstructionBlockType) {
   return (
     <section className="constructionBlock">
       <div className="constructionBlock_wrap">
-        <img src={img} />
+        <div className="constructionBlock_wrap_whiteBg">
+          <img src={img} alt="construction image" />
+          <div
+            className="constructionBlock_wrap_whiteBg_rect"
+            style={{ backgroundColor: rectBg }}
+          ></div>
+        </div>
 
         <div className="constructionBlock_wrap_content">
           <h1 className="constructionBlock_wrap_content_title">{title}</h1>
@@ -24,14 +36,18 @@ function ConstructionBlock({ img, title, steps }: ConstructionBlockType) {
                 className="constructionBlock_wrap_content_steps_el"
                 key={`SE_${index}`}
               >
-                <h2>{index + 1}</h2>
+                <div className="constructionBlock_wrap_content_steps_el_number">
+                  {index + 1}
+                </div>
                 <h3>{el.title}</h3>
                 <p>{el.content}</p>
               </div>
             ))}
           </div>
 
-          <button>Детальніше</button>
+          <a href="#" target="_blank">
+            Детальніше
+          </a>
         </div>
       </div>
     </section>

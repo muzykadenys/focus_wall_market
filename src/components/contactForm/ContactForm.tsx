@@ -11,7 +11,14 @@ interface ValuesType {
 const ContactForm = () => {
   const { handleSendLetter } = useMail();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isSent, setIsSent] = useState<boolean>(false);
   const [values, setValues] = useState<ValuesType>({
+    name: "",
+    phone_number: "",
+    purpose: "Запитання",
+    comment: "",
+  });
+  const [errors, setErrors] = useState<ValuesType>({
     name: "",
     phone_number: "",
     purpose: "Запитання",
@@ -20,28 +27,37 @@ const ContactForm = () => {
 
   const handleSetValue = (value: string, key: string) => {
     setValues((el: ValuesType) => ({ ...el, [key]: value }));
+    setErrors((el: ValuesType) => ({ ...el, [key]: "" }));
   };
 
-  const areValuesNotEmpty = (obj: ValuesType): boolean => {
+  const areValuesNotEmpty = (obj: any): boolean => {
+    Object.keys(obj).map((key: string) => {
+      setErrors((prevErrors: any) => ({
+        ...prevErrors,
+        [key]: obj[key] === "" ? "error" : "",
+      }));
+    });
+
     return Object.values(obj).every((value) => value !== "");
   };
 
   const handleOnSubmit = async (e: any) => {
     e.preventDefault();
-    
-    if (!isLoading && areValuesNotEmpty({...values})) {
+
+    if (!isSent && !isLoading && areValuesNotEmpty({ ...values })) {
       setIsLoading(true);
-      console.log("2")
 
       const res = await handleSendLetter({ ...values });
 
       if (res.data) {
         setIsLoading(false);
+        setIsSent(true);
+        setTimeout(() => setIsSent(false), 2000);
 
         setValues({
           name: "",
           phone_number: "",
-          purpose: "",
+          purpose: "Запитання",
           comment: "",
         });
       }
@@ -61,7 +77,11 @@ const ContactForm = () => {
         placeholder="ПІБ"
         value={values["name"]}
         onChange={(e: any) => handleSetValue(e.target.value, "name")}
+        style={{
+          border: ` ${errors.name !== "" ? "1px solid red" : "none"}`,
+        }}
       />
+      <h3 className="form-title">Номер телфону</h3>
       <label htmlFor="phoneNumber" className="visually-hidden">
         Номер телефону
       </label>
@@ -72,8 +92,11 @@ const ContactForm = () => {
         placeholder="+380"
         value={values["phone_number"]}
         onChange={(e: any) => handleSetValue(e.target.value, "phone_number")}
+        style={{
+          border: ` ${errors.phone_number !== "" ? "1px solid red" : "none"}`,
+        }}
       />
-      
+      <h3 className="form-title">Коментарі</h3>
       <label htmlFor="comments" className="visually-hidden">
         Коментарі
       </label>
@@ -83,6 +106,9 @@ const ContactForm = () => {
         placeholder="Коментарі"
         value={values["comment"]}
         onChange={(e: any) => handleSetValue(e.target.value, "comment")}
+        style={{
+          border: ` ${errors.comment !== "" ? "1px solid red" : "none"}`,
+        }}
       ></textarea>
 
       <button
@@ -90,11 +116,15 @@ const ContactForm = () => {
         className="submit-button"
         style={isLoading ? { opacity: `0.5`, pointerEvents: "none" } : {}}
       >
-        {isLoading ? <div className="loader"></div> : "Зв'язатись"}
+        {isLoading ? (
+          <div className="loader"></div>
+        ) : (
+          <>{isSent ? "Відправлено!" : "Зв'язатись"}</>
+        )}
       </button>
       <style jsx>{`
         .contact-form {
-          border-radius: 30px;
+          border-radius: 20px;
           border: 2px solid rgba(187, 231, 62, 1);
           display: flex;
           flex-grow: 1;
@@ -108,6 +138,7 @@ const ContactForm = () => {
         .form-title {
           font-family: Roboto, sans-serif;
           margin-right: auto;
+          margin-top:15px;
         }
         .form-input,
         .form-textarea,
@@ -180,6 +211,8 @@ const ContactForm = () => {
           }
           .form-title {
             max-width: 100%;
+            margin-top:10px;
+            font-size:15px;
           }
           .form-input,
           .form-textarea,
@@ -190,8 +223,8 @@ const ContactForm = () => {
           .submit-button {
             white-space: initial;
             padding: 0 20px;
-            margin-bottom:20px;
-            margin-top:10px;
+            margin-bottom: 20px;
+            margin-top: 10px;
           }
         }
         @media (max-width: 640px) {
@@ -204,12 +237,17 @@ const ContactForm = () => {
             margin-bottom: 10px;
           }
           .form-textarea {
-            margin-top:10px;
+            margin-top: 10px;
             padding-bottom: 29px;
           }
           .submit-button {
             margin-top: 20px;
             margin-bottom: 20px;
+          }
+          .form-title {
+            
+            margin-top:10px;
+            font-size:12px;
           }
         }
         @media (max-width: 400px) {
@@ -221,12 +259,17 @@ const ContactForm = () => {
             padding-right: 120px;
           }
           .form-textarea {
-            margin-top:10px;
+            margin-top: 10px;
             padding-bottom: 15px;
           }
           .submit-button {
             margin-top: 10px;
             margin-bottom: 10px;
+          }
+          .form-title {
+            
+            margin-top:7px;
+            font-size:9px;
           }
         }
       `}</style>

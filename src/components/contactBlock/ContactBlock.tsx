@@ -9,7 +9,7 @@ const ContactSection = () => {
         <div className="contact-content">
           <div className="contact-info">
             <h2 className="contact-title">
-              З'яжіться з нашим <br /> менеджером
+              Зв'яжіться з нашим <br /> менеджером
             </h2>
             <p className="contact-description">
               Вас зацікавили пропозиції або виникли питання? <br />

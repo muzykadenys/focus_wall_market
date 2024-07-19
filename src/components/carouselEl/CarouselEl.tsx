@@ -17,7 +17,7 @@ function SampleNextArrow(props: any) {
       style={{ ...style, display: "flex" }}
       onClick={onClick}
     >
-      <img src="../img/arrow_right.svg" width={30} />
+      <img src="../img/arrow_right.svg" width={30} alt="arrow right" />
     </div>
   );
 }
@@ -30,7 +30,7 @@ function SamplePrevArrow(props: any) {
       style={{ ...style, display: "flex" }}
       onClick={onClick}
     >
-      <img src="../img/arrow_left.svg" width={30} />
+      <img src="../img/arrow_left.svg" width={30} alt="arrow left" />
     </div>
   );
 }
@@ -41,10 +41,10 @@ export default function CarouselEl({ slidesList }: CarouselElTypes) {
     centerMode: true,
     infinite: true,
     centerPadding: "20px",
-    slidesToShow: 3,
+    slidesToShow: 2.35,
     slidesToScroll: 1,
     autoplaySpeed: 5000,
-    autoplay: true,
+    // autoplay: true,
     speed: 500,
     focusOnSelect: true,
     nextArrow: <SampleNextArrow />,
@@ -58,14 +58,10 @@ export default function CarouselEl({ slidesList }: CarouselElTypes) {
         <Slider {...settings}>
           {slidesList.map((el: CarouselItem) => (
             <div className="slider-container_el" key={`SCI${el.text}`}>
-              <img src={el.img} />
+              <img src={el.img} alt="slide"/>
               <p>{el.text}</p>
             </div>
           ))}
-          <div className="slider-container_el">
-            <img src={slidesList[1].img} />
-            <p>{slidesList[1].text}</p>
-          </div>
         </Slider>
       </div>
     </div>

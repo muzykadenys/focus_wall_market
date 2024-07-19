@@ -17,6 +17,24 @@
     max-width: $max_width_3;
     gap: 50px;
 
+    &_whiteBg {
+      display: flex;
+      justify-content: center;
+      position: relative;
+
+      img {
+        z-index: 1;
+      }
+
+      &_rect {
+        top: 0px;
+        width: 100vw;
+        height: 100%;
+        position: absolute;
+        // background-color: #f2f2f2;
+      }
+    }
+
     &_content {
       display: flex;
       flex-direction: column;
@@ -49,7 +67,7 @@
             padding-left: 0px;
           }
 
-          h2 {
+          &_number {
             color: $accent;
             font-size: 48px;
             font-weight: 800;
@@ -67,7 +85,7 @@
         }
       }
 
-      button {
+      a {
         padding: 15px 75px;
         border-radius: $radius;
         border: 2px solid $accent;
