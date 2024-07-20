@@ -9,7 +9,7 @@ function Header() {
 
   return (
     <header className="header">
-      <img className="header_logo" src="../img/logo.svg" alt="logo"/>
+      <img className="header_logo" src="../img/logo.svg" alt="logo" />
 
       <div className="header_right">
         <a className="header_right_link" href="#focuswall">
@@ -21,45 +21,46 @@ function Header() {
         <a className="header_right_link" href="#winder">
           Віндери
         </a>
-        <a className="header_right_link"  href="#contact">Контакти</a>
+        <a className="header_right_link" href="#contact">
+          Контакти
+        </a>
       </div>
 
       <div className="header_rightMobile" onClick={() => setIsOpen(true)}>
-        <img src="../img/menu.svg" alt="menu icon"/>
+        <img src="../img/menu.svg" alt="menu icon" />
       </div>
 
       <div className={`header_side ${isOpen && "header_sideOpen"}`}>
         <div className="header_side_close" onClick={() => setIsOpen(false)}>
-          <img src="../img/close.svg" alt="close menu icon"/>
+          <img src="../img/close.svg" alt="close menu icon" />
         </div>
-
         <a
           className="header_right_link"
           href="#focuswall"
           onClick={() => setIsOpen(false)}
         >
-          Focuswall
+          Фокусволи
         </a>
         <a
           className="header_right_link"
           href="#cube"
           onClick={() => setIsOpen(false)}
         >
-          Cube
+          Куби
         </a>
         <a
           className="header_right_link"
           href="#winder"
           onClick={() => setIsOpen(false)}
         >
-          Flag
+          Віндери
         </a>
         <a
           className="header_right_link"
           href="#contact"
           onClick={() => setIsOpen(false)}
         >
-          Contact
+          Контакти
         </a>
       </div>
     </header>
