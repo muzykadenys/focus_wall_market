@@ -30,3 +30,6 @@ body {
   background-color: black;
   font-family: 'Roboto';
 }
+#__next{
+  overflow-x: hidden;
+}

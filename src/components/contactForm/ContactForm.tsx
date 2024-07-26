@@ -25,11 +25,22 @@ const ContactForm = () => {
     comment: "",
   });
 
+  // const handleSetValue = (value: string, key: string) => {
+  //   setValues((el: ValuesType) => ({ ...el, [key]: value }));
+  //   setErrors((el: ValuesType) => ({ ...el, [key]: "" }));
+  // };
+
   const handleSetValue = (value: string, key: string) => {
+    if (key === "phone_number") {
+      if (value.length === 14) value = value.slice(0, -1);
+      if (value === "+38") value = "+380";
+      if (!value.startsWith("+380") && !value.includes("+380")) {
+        value = "+380" + value.replace(/^0+/, "");
+      }
+    }
     setValues((el: ValuesType) => ({ ...el, [key]: value }));
     setErrors((el: ValuesType) => ({ ...el, [key]: "" }));
   };
-
   const areValuesNotEmpty = (obj: any): boolean => {
     Object.keys(obj).map((key: string) => {
       setErrors((prevErrors: any) => ({
@@ -43,6 +54,14 @@ const ContactForm = () => {
 
   const handleOnSubmit = async (e: any) => {
     e.preventDefault();
+
+    if (!validatePhoneNumber(values.phone_number)) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        phone_number: "Invalid phone number",
+      }));
+      return;
+    }
 
     if (!isSent && !isLoading && areValuesNotEmpty({ ...values })) {
       setIsLoading(true);
@@ -62,6 +81,11 @@ const ContactForm = () => {
         });
       }
     }
+  };
+
+  const validatePhoneNumber = (phoneNumber: string): boolean => {
+    const phoneRegex = /^\+380\d{9}$/;
+    return phoneRegex.test(phoneNumber);
   };
 
   return (
@@ -91,6 +115,7 @@ const ContactForm = () => {
         className="form-input phone-input"
         placeholder="+380"
         value={values["phone_number"]}
+        inputMode="numeric"
         onChange={(e: any) => handleSetValue(e.target.value, "phone_number")}
         style={{
           border: ` ${errors.phone_number !== "" ? "1px solid red" : "none"}`,
@@ -138,7 +163,7 @@ const ContactForm = () => {
         .form-title {
           font-family: Roboto, sans-serif;
           margin-right: auto;
-          margin-top:15px;
+          margin-top: 15px;
         }
         .form-input,
         .form-textarea,
@@ -206,13 +231,13 @@ const ContactForm = () => {
         @media (max-width: 991px) {
           .contact-form {
             max-width: 100%;
-            margin-top: 40px;
+            margin: 40px 20px 0px;
             padding: 0 20px;
           }
           .form-title {
             max-width: 100%;
-            margin-top:10px;
-            font-size:15px;
+            margin-top: 10px;
+            font-size: 15px;
           }
           .form-input,
           .form-textarea,
@@ -245,9 +270,8 @@ const ContactForm = () => {
             margin-bottom: 20px;
           }
           .form-title {
-            
-            margin-top:10px;
-            font-size:12px;
+            margin-top: 10px;
+            font-size: 12px;
           }
         }
         @media (max-width: 400px) {
@@ -267,9 +291,8 @@ const ContactForm = () => {
             margin-bottom: 10px;
           }
           .form-title {
-            
-            margin-top:7px;
-            font-size:9px;
+            margin-top: 7px;
+            font-size: 9px;
           }
         }
       `}</style>
