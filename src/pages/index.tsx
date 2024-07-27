@@ -28,7 +28,7 @@ export default function Home() {
 
         <meta property="og:title" content="Focus Wall Market" />
         <meta property="og:description" content="Текстильні лайтбокси. Рекламні куби. Віндери, прапори." />
-        <meta property="og:image" content="https://focus-wall-market.vercel.app/img/open_graph.jpg" />
+        <meta property="og:image" content="https://focus-wall-market.vercel.app/img/open_graph.jpg?v=2" />
         <meta property="og:url" content="https://focus-wall-market.vercel.app" /> 
         <meta property="og:type" content="website" />
       </Head>
