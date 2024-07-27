@@ -39,7 +39,9 @@ $sides_offset: 50px;
   &_bottom {
     display: flex;
     justify-content: space-between;
-    width: calc(100% - $sides_offset);
+    // width: calc(100% - $sides_offset);
+    width: 100%;
+    max-width: $max_width;
 
     &_left {
       display: flex;

@@ -14,12 +14,23 @@ export default function Home() {
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
           rel="stylesheet"
         />
+
+        <link 
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"
+        />
+
         <title>Focus wall market</title>
         <meta
           name="description"
           content="Текстильні лайтбокси. Рекламні куби. Віндери, прапори."
           key="desc"
         />
+
+        <meta property="og:title" content="Focus Wall Market" />
+        <meta property="og:description" content="Текстильні лайтбокси. Рекламні куби. Віндери, прапори." />
+        <meta property="og:image" content="../../public/img/baner_1.png" />
+        <meta property="og:url" content="https://focus-wall-market.vercel.app" /> 
+        <meta property="og:type" content="website" />
       </Head>
 
       <Hero />

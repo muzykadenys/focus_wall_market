@@ -25,11 +25,20 @@ const ContactForm = () => {
     comment: "",
   });
 
+  // const handleSetValue = (value: string, key: string) => {
+  //   setValues((el: ValuesType) => ({ ...el, [key]: value }));
+  //   setErrors((el: ValuesType) => ({ ...el, [key]: "" }));
+  // };
+
   const handleSetValue = (value: string, key: string) => {
+    if (key === "phone_number") {
+      if (!value.startsWith("+380")) {
+        value = "+380" + value.replace(/^0+/, ""); 
+      }
+    }
     setValues((el: ValuesType) => ({ ...el, [key]: value }));
     setErrors((el: ValuesType) => ({ ...el, [key]: "" }));
   };
-
   const areValuesNotEmpty = (obj: any): boolean => {
     Object.keys(obj).map((key: string) => {
       setErrors((prevErrors: any) => ({
@@ -43,6 +52,14 @@ const ContactForm = () => {
 
   const handleOnSubmit = async (e: any) => {
     e.preventDefault();
+
+    if (!validatePhoneNumber(values.phone_number)) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        phone_number: "Invalid phone number",
+      }));
+      return;
+    }
 
     if (!isSent && !isLoading && areValuesNotEmpty({ ...values })) {
       setIsLoading(true);
@@ -63,6 +80,11 @@ const ContactForm = () => {
       }
     }
   };
+
+  const validatePhoneNumber = (phoneNumber: string): boolean => {
+    const phoneRegex = /^\+380\d{9}$/; 
+    return phoneRegex.test(phoneNumber); 
+  };   
 
   return (
     <form className="contact-form" onSubmit={handleOnSubmit}>
@@ -91,6 +113,7 @@ const ContactForm = () => {
         className="form-input phone-input"
         placeholder="+380"
         value={values["phone_number"]}
+        inputMode="numeric"
         onChange={(e: any) => handleSetValue(e.target.value, "phone_number")}
         style={{
           border: ` ${errors.phone_number !== "" ? "1px solid red" : "none"}`,
@@ -206,7 +229,7 @@ const ContactForm = () => {
         @media (max-width: 991px) {
           .contact-form {
             max-width: 100%;
-            margin-top: 40px;
+            margin: 40px 20px 0px;
             padding: 0 20px;
           }
           .form-title {
