@@ -13,8 +13,8 @@ const ContactSection = () => {
             </h2>
             <p className="contact-description">
               Вас зацікавили пропозиції або виникли питання? <br />
-              Заповніть форму зворотнього з'язку і наші менеджери <br />
-              як найшвидше зв'яжуться з вами
+              Заповніть форму зворотнього з'язку і наші менеджери як найшвидше
+              зв'яжуться з вами
             </p>
           </div>
           <ContactForm />
@@ -51,6 +51,7 @@ const ContactSection = () => {
           font: 900 58px Roboto, sans-serif;
         }
         .contact-description {
+          max-width: 500px;
           color: rgba(255, 255, 255, 0.6);
           margin-top: 36px;
           font: 500 20px Inter, sans-serif;
@@ -64,6 +65,7 @@ const ContactSection = () => {
             font-size: 18px;
           }
           .contact-description {
+                    max-width: 300px;
             font-size: 9px;
             margin-top: 8px;
           }
@@ -107,6 +109,7 @@ const ContactSection = () => {
             font-size: 20px;
           }
           .contact-description {
+                    max-width: 400px;
             font-size: 10px;
             margin-top: 10px;
           }
