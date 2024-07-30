@@ -105,7 +105,7 @@ const ContactForm = () => {
           border: ` ${errors.name !== "" ? "1px solid red" : "none"}`,
         }}
       />
-      <h3 className="form-title">Номер телфону</h3>
+      <h3 className="form-title">Номер телефону</h3>
       <label htmlFor="phoneNumber" className="visually-hidden">
         Номер телефону
       </label>
