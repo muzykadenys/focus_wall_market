@@ -123,6 +123,12 @@
   }
 }
 
+@media screen and (min-width: 2000px) {
+  .hero {
+    height: 100%;
+  }
+}
+
 @media screen and (max-width: 1300px) {
   .hero {
     height: 100%;
